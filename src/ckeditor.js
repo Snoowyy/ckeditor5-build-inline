@@ -30,6 +30,7 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
+import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
 
 export default class InlineEditor extends InlineEditorBase {}
 
@@ -57,7 +58,8 @@ InlineEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	TextTransformation
+	TextTransformation,
+	Superscript
 ];
 
 // Editor configuration.
@@ -68,6 +70,8 @@ InlineEditor.defaultConfig = {
 			'|',
 			'bold',
 			'italic',
+			'superscript',
+			'subscript',
 			'link',
 			'bulletedList',
 			'numberedList',
