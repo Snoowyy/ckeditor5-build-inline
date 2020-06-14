@@ -84,7 +84,6 @@
   "homepage": "https://ckeditor.com/ckeditor-5",
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
     }
   },
   "keywords": [
