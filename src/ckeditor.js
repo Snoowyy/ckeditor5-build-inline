@@ -18,7 +18,7 @@ import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
-import ImageLink from '../ckeditor5-image/src/imagelink';
+import ImageLink2 from '../ckeditor5-image/src/imagelink2';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
@@ -48,7 +48,7 @@ InlineEditor.builtinPlugins = [
 	Heading,
 	Image,
 	ImageCaption,
-	ImageLink,
+	ImageLink2,
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload,
@@ -94,7 +94,7 @@ InlineEditor.defaultConfig = {
 			'imageStyle:full',
 			'imageStyle:side',
 			'|',
-			'imageTextAlternative'
+			'imageLink2'
 		]
 	},
 	table: {

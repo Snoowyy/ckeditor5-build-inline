@@ -10,9 +10,9 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 import clickOutsideHandler from '@ckeditor/ckeditor5-ui/src/bindings/clickoutsidehandler';
-import TextAlternativeFormView from './ui/textalternativeformview';
+import Link2formview from './ui/link2formview';
 import ContextualBalloon from '@ckeditor/ckeditor5-ui/src/panel/balloon/contextualballoon';
-import textAlternativeIcon from '@ckeditor/ckeditor5-core/theme/icons/low-vision.svg';
+import linkIcon from '@ckeditor/ckeditor5-link/theme/icons/link.svg';
 import { repositionContextualBalloon, getBalloonPositionData } from '../image/ui/utils';
 import { getSelectedImageWidget } from '../image/utils';
 
@@ -23,7 +23,7 @@ import { getSelectedImageWidget } from '../image/utils';
  *
  * @extends module:core/plugin~Plugin
  */
-export default class ImageTextAlternativeUI extends Plugin {
+export default class Imagelink2ui extends Plugin {
 	/**
 	 * @inheritDoc
 	 */
@@ -35,7 +35,7 @@ export default class ImageTextAlternativeUI extends Plugin {
 	 * @inheritDoc
 	 */
 	static get pluginName() {
-		return 'ImageTextAlternativeUI';
+		return 'ImageLink2UI';
 	}
 
 	/**
@@ -66,13 +66,13 @@ export default class ImageTextAlternativeUI extends Plugin {
 		const editor = this.editor;
 		const t = editor.t;
 
-		editor.ui.componentFactory.add( 'imageTextAlternative', locale => {
-			const command = editor.commands.get( 'imageTextAlternative' );
+		editor.ui.componentFactory.add( 'imageLink2', locale => {
+			const command = editor.commands.get( 'imageLink2' );
 			const view = new ButtonView( locale );
 
 			view.set( {
-				label: t( 'Change image text alternative' ),
-				icon: textAlternativeIcon,
+				label: t( 'Change image link' ),
+				icon: linkIcon,
 				tooltip: true
 			} );
 
@@ -110,13 +110,13 @@ export default class ImageTextAlternativeUI extends Plugin {
 		 *
 		 * @member {module:image/imagetextalternative/ui/textalternativeformview~Link2formview}
 		 */
-		this._form = new TextAlternativeFormView( editor.locale );
+		this._form = new Link2formview( editor.locale );
 
 		// Render the form so its #element is available for clickOutsideHandler.
 		this._form.render();
 
 		this.listenTo( this._form, 'submit', () => {
-			editor.execute( 'imageTextAlternative', {
+			editor.execute( 'imageLink2', {
 				newValue: this._form.labeledInput.inputView.element.value
 			} );
 
@@ -162,7 +162,7 @@ export default class ImageTextAlternativeUI extends Plugin {
 		}
 
 		const editor = this.editor;
-		const command = editor.commands.get( 'imageTextAlternative' );
+		const command = editor.commands.get( 'imageLink2' );
 		const labeledInput = this._form.labeledInput;
 
 		if ( !this._isInBalloon ) {
