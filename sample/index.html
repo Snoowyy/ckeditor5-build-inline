@@ -19,6 +19,10 @@
 
 	<p>This is an instance of the <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#inline-editor">inline editor build</a>.</p>
 
+	<p>
+		Hello <a class="crossreference" data-index="2">Tales pascuales en 2020</a>
+	</p>
+
 	<figure class="image">
 		<img src="../tests/manual/sample.jpg" alt="Autumn fields" />
 	</figure>
@@ -26,11 +30,13 @@
 	<p>You can use this sample to validate whether your <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/custom-builds.html">custom build</a> works fine.</p>
 </div>
 
+<script src="../node_modules/@ckeditor/ckeditor5-inspector/build/inspector.js"></script>
 <script src="../build/ckeditor.js"></script>
 <script>
 	InlineEditor.create( document.querySelector( '#editor2' ) )
 		.then( editor => {
 			window.editor = editor;
+			CKEditorInspector.attach( editor );
 		} )
 		.catch( error => {
 			console.error( 'There was a problem initializing the editor.', error );

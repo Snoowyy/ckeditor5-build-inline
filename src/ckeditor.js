@@ -32,8 +32,45 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
+import Crossreference from '../crossreference/crossreference';
 
 export default class InlineEditor extends InlineEditorBase {}
+
+import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
+import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/image.svg';
+import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
+
+class InsertImage extends Plugin {
+	init() {
+		const editor = this.editor;
+
+		editor.ui.componentFactory.add( 'insertImage', locale => {
+			const view = new ButtonView( locale );
+
+			view.set( {
+				label: 'Insert image',
+				icon: imageIcon,
+				tooltip: true
+			} );
+
+			// Callback executed once the image is clicked.
+			view.on( 'execute', () => {
+				const imageUrl = prompt( 'Image URL' );
+
+				editor.model.change( writer => {
+					const imageElement = writer.createElement( 'paragraph', {
+						Text: imageUrl
+					} );
+
+					// Insert the image in the current selection location.
+					editor.model.insertContent( imageElement, editor.model.document.selection );
+				} );
+			} );
+
+			return view;
+		} );
+	}
+}
 
 // Plugins to include in the build.
 InlineEditor.builtinPlugins = [
@@ -46,6 +83,7 @@ InlineEditor.builtinPlugins = [
 	CKFinder,
 	EasyImage,
 	Heading,
+	InsertImage,
 	Image,
 	ImageCaption,
 	ImageLink2,
@@ -61,7 +99,8 @@ InlineEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	TextTransformation,
-	Superscript
+	Superscript,
+	Crossreference
 ];
 
 // Editor configuration.
@@ -86,7 +125,8 @@ InlineEditor.defaultConfig = {
 			'insertTable',
 			'mediaEmbed',
 			'undo',
-			'redo'
+			'redo',
+			'crossreference'
 		]
 	},
 	image: {

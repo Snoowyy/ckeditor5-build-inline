@@ -1,0 +1,10 @@
+.crossreference {
+	padding: 4px 2px;
+	outline-offset: -2px;
+	line-height: 1em;
+	margin: 0 1px;
+}
+
+.crossreference::selection {
+	display: none;
+}
