@@ -100,7 +100,7 @@ export default class CrossreferenceEditing extends Plugin {
 		} );
 
 		function setContent( viewWriter, index, crossreferenceView ) {
-			const innerText = viewWriter.createText( '[' + index + ']' );
+			const innerText = viewWriter.createText( String(index) );
 			viewWriter.insert( viewWriter.createPositionAt( crossreferenceView, 0 ), innerText );
 		}
 
