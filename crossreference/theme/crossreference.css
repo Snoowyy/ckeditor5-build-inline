@@ -8,3 +8,7 @@
 .crossreference::selection {
 	display: none;
 }
+
+.ck-crossreference-input input {
+	width: 330px !important;
+}

@@ -61,7 +61,7 @@ export default class CrossreferenceFormView extends View {
 		 *
 		 * @member {module:ui/labeledinput/labeledinputview~LabeledInputView}
 		 */
-		this.urlInputView = this._createUrlInput();
+		this.urlInputView = this._createUrlInput('ck-crossreference-input');
 
 		/**
 		 * The Save button view.
@@ -267,10 +267,16 @@ export default class CrossreferenceFormView extends View {
 	 * @private
 	 * @returns {module:ui/labeledinput/labeledinputview~LabeledInputView} Labeled input view instance.
 	 */
-	_createUrlInput() {
+	_createUrlInput(className) {
 		const t = this.locale.t;
 
 		const labeledInput = new LabeledInputView( this.locale, InputTextView );
+
+		labeledInput.extendTemplate( {
+			attributes: {
+				class: className
+			}
+		} );
 		const inputView = labeledInput.inputView;
 
 		this._urlInputViewInfoDefault = t( 'Escribe texto a citar.' );
