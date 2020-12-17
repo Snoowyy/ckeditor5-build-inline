@@ -15,14 +15,18 @@
 <h1>CKEditor 5 – inline editor build – development sample</h1>
 
 <div id="editor2">
+
 	<h2>Algo lindo</h2>
 	<p>Tales <strong>pascuales</strong> Tales<a class="crossreference" title="Otro ejemplo chungo">1</a>&nbsp;<i>pascuales</i>
-		Tales pascuales Tales pascuales Tales pascuales Tales pascuales Tales pascuales Tales pascuales Tales pascuales
+		Tales pascuales Tales pascuales <mark class="marker-yellow comment" comment-id="123456" id="8798798789">mygeneration</mark>
+		Tales pascuales Tales pascuales Tales pascuales Tales pascuales Tales pascuales
 		Tales pascuales Tales<a class="crossreference" title="La referencia mas linda del mundo">2</a>&nbsp;pascuales
 		Tales pascuales Tales pascuales Tales pascuales Tales pascuales Tales pascuales Tales pascuales Tales pascuales
 		Tales pascuales Tales pascuales Tales pascuales Tales pascuales Tales pascuales Tales pascuales Tales
 		pascuales<a class="crossreference" title="Otra cosa muy linda linda">3</a>.</p>
 
+	<p>a
+	</p>
 	<h2>Sample</h2>
 
 	<p>This is an instance of the <a
@@ -34,7 +38,7 @@
 	</p>
 
 	<figure class="image">
-		<img src="../tests/manual/sample.jpg" alt="Autumn fields"/>
+		<img src="../tests/manual/sample.jpg" alt="Autumn fields" id="asldkjalsdja"/>
 	</figure>
 
 	<p>You can use this sample to validate whether your <a
@@ -45,7 +49,7 @@
 <script src="../node_modules/@ckeditor/ckeditor5-inspector/build/inspector.js"></script>
 <script src="../build/ckeditor.js"></script>
 <script>
-	InlineEditor.create( document.querySelector( '#editor2' ) )
+	InlineEditor.create( document.querySelector( '#editor2' ))
 			.then( editor => {
 				window.editor = editor;
 				CKEditorInspector.attach( editor );

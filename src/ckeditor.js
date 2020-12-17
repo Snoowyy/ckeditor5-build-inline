@@ -7,6 +7,8 @@
 import InlineEditorBase from '@ckeditor/ckeditor5-editor-inline/src/inlineeditor';
 
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
+
+// import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
 // import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
 import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
@@ -33,6 +35,7 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
 import Crossreference from '../crossreference/crossreference';
+import Comments from '../comments/comments';
 
 export default class InlineEditor extends InlineEditorBase {}
 
@@ -100,7 +103,8 @@ InlineEditor.builtinPlugins = [
 	TableToolbar,
 	TextTransformation,
 	Superscript,
-	Crossreference
+	Crossreference,
+	Comments
 ];
 
 // Editor configuration.
