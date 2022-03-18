@@ -127,6 +127,7 @@
   },
   "version": "18.0.0",
   "dependencies": {
+    "@ckeditor/ckeditor5-html-embed": "^33.0.0",
     "@ckeditor/ckeditor5-upload": "^18.0.0"
   }
 }

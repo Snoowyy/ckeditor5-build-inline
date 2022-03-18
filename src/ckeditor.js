@@ -36,6 +36,7 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
 import Crossreference from '../crossreference/crossreference';
 import Comments from '../comments/comments';
+import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed';
 
 export default class InlineEditor extends InlineEditorBase {}
 
@@ -104,7 +105,8 @@ InlineEditor.builtinPlugins = [
 	TextTransformation,
 	Superscript,
 	Crossreference,
-	Comments
+	Comments,
+	HtmlEmbed
 ];
 
 // Editor configuration.
@@ -130,7 +132,8 @@ InlineEditor.defaultConfig = {
 			'mediaEmbed',
 			'undo',
 			'redo',
-			'crossreference'
+			'crossreference',
+			'htmlEmbed'
 		]
 	},
 	image: {
@@ -149,5 +152,5 @@ InlineEditor.defaultConfig = {
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
+	language: 'es'
 };
